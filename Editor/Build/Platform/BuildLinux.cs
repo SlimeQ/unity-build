@@ -35,6 +35,11 @@ public class BuildLinux : BuildPlatform
                 new BuildArchitecture(BuildTarget.StandaloneLinux, "Linux x86", false),
                 new BuildArchitecture(BuildTarget.StandaloneLinux64, "Linux x64", false)
             };
+            
+#if UNITY_2018_3_OR_NEWER
+            architectures[0].deprecated = true;
+            architectures[1].deprecated = true;
+#endif
         }
     }
 }
