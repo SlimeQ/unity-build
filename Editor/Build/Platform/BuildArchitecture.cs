@@ -10,6 +10,7 @@ public class BuildArchitecture
     public BuildTarget target;
     public string name;
     public bool enabled;
+    public bool deprecated;
     public string binaryNameFormat;
 
     public BuildArchitecture(BuildTarget target, string name, bool enabled, string binaryNameFormat)

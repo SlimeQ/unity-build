@@ -30,8 +30,12 @@ public class BuildPlatformDrawer : PropertyDrawer
                     SerializedProperty archProperty = archList.GetArrayElementAtIndex(i);
                     SerializedProperty archName = archProperty.FindPropertyRelative("name");
                     SerializedProperty archEnabled = archProperty.FindPropertyRelative("enabled");
+                    SerializedProperty archDeprecated = archProperty.FindPropertyRelative("deprecated");
 
                     archEnabled.boolValue = GUILayout.Toggle(archEnabled.boolValue, archName.stringValue);
+                    if (archEnabled.boolValue && archDeprecated.boolValue)
+                        EditorGUILayout.HelpBox("This architecture has been deprecated and will be removed in a future Unity version.", MessageType.Warning);
+                    
                     archProperty.serializedObject.ApplyModifiedProperties();
                 }
             }

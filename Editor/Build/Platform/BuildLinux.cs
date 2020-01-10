@@ -37,6 +37,8 @@ public class BuildLinux : BuildPlatform
 #if UNITY_2018_3_OR_NEWER
             architectures[0].enabled = false;
             architectures[2].enabled = true;
+            architectures[0].deprecated = true;
+            architectures[1].deprecated = true;
 #endif
         }
     }
